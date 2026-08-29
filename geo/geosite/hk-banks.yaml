@@ -57,4 +57,5 @@ payload:
   # WeLab Bank
   - '+.welab.bank'
   # ZA Bank
-  - '+.bank.za'
+  - '+.za.group'
+  - '+.zainvest.group'

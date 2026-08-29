@@ -1,0 +1,13 @@
+# Build tool downloads and temporary output
+.cache/
+mihomo
+*.gz
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Generated rule-set artifacts: kept out of local checkouts; CI force-adds and
+# commits them to main so raw download URLs stay up to date.
+/geo/geosite/*.mrs
+/geo/geosite/*.list

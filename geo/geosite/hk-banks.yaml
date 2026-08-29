@@ -1,0 +1,60 @@
+# Hong Kong retail, virtual and commercial banks.
+# Scope: customer-facing first-party domains. Review additions against HKMA's
+# Register of Authorized Institutions: https://vpr.hkma.gov.hk/
+payload:
+  # Airstar Bank
+  - '+.airstarbank.com'
+  # Ant Bank (Hong Kong)
+  - '+.antbank.hk'
+  # Bank of China (Hong Kong) / BOC Pay
+  - '+.bocpay.com'
+  - '+.bochk.com'
+  # Bank of Communications (Hong Kong)
+  - '+.bankcomm.com.hk'
+  # Bank of East Asia
+  - '+.hkbea.com'
+  # China CITIC Bank International
+  - '+.cncbinternational.com'
+  # China Construction Bank (Asia)
+  - '+.asia.ccb.com'
+  # CMB Wing Lung Bank
+  - '+.cmbwinglungbank.com'
+  # Chong Hing Bank
+  - '+.chbank.com'
+  # Citibank Hong Kong
+  - '+.citibank.com.hk'
+  # Dah Sing Bank
+  - '+.dahsing.com'
+  # DBS Bank (Hong Kong)
+  - '+.dbs.com.hk'
+  # Fubon Bank (Hong Kong)
+  - '+.fubonbank.com.hk'
+  # Fusion Bank
+  - '+.fusionbank.com'
+  # Hang Seng Bank
+  - '+.hangseng.com'
+  - '+.hangseng.com.hk'
+  # HSBC Hong Kong
+  - '+.hsbc.com'
+  - '+.hsbc.com.hk'
+  # ICBC (Asia)
+  - '+.icbcasia.com'
+  # livi Bank
+  - '+.livibank.com'
+  # Mox Bank
+  - '+.mox.com'
+  # Nanyang Commercial Bank
+  - '+.ncb.com.hk'
+  # OCBC Wing Hang Hong Kong
+  - '+.ocbcwhhk.com'
+  # PAO Bank
+  - '+.paob.com.hk'
+  # Shanghai Commercial Bank
+  - '+.shacombank.com.hk'
+  # Standard Chartered Hong Kong
+  - '+.sc.com'
+  - '+.sc.com.hk'
+  # WeLab Bank
+  - '+.welab.bank'
+  # ZA Bank
+  - '+.bank.za'

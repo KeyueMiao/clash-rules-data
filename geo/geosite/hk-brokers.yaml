@@ -1,0 +1,45 @@
+# Hong Kong brokerages and trading platforms.
+# Scope: customer-facing first-party domains for firms serving Hong Kong.
+# Do not add CDN, cloud, analytics, authentication-provider or unrelated
+# group domains. Add a comment identifying the firm for every new entry.
+payload:
+  # Bank of China International Securities
+  - '+.bocionline.com'
+  # Bright Smart Securities
+  - '+.brightsmart.com.hk'
+  # CICC Hong Kong
+  - '+.cicc.com'
+  # CMB International Securities
+  - '+.cmbi.com.hk'
+  # China Everbright Securities International
+  - '+.ebshk.com'
+  # Charles Schwab Hong Kong
+  - '+.schwab.com'
+  # Futu / moomoo
+  - '+.futuhk.com'
+  - '+.futunn.com'
+  - '+.moomoo.com'
+  - '+.moomoo.com.hk'
+  # Guotai Junan International
+  - '+.gtjas.com'
+  # Haitong International Securities
+  - '+.htisec.com'
+  # Huatai Securities Hong Kong
+  - '+.htsc.com.hk'
+  # Interactive Brokers Hong Kong
+  - '+.ibkr.com'
+  - '+.interactivebrokers.com'
+  # Longbridge
+  - '+.longbridge.com'
+  - '+.longbridgehk.com'
+  # Phillip Securities / POEMS
+  - '+.poems.com.hk'
+  # Tiger Brokers
+  - '+.itiger.com'
+  - '+.tigerbrokers.com'
+  - '+.tigersecurities.com'
+  # uSMART Securities
+  - '+.usmart.hk'
+  # Webull Hong Kong
+  - '+.webull.com'
+  - '+.webull.hk'

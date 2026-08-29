@@ -1,0 +1,74 @@
+name: Build Mihomo rule-sets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'geo/geosite/**'
+      - 'scripts/**'
+      - '.github/workflows/build-rulesets.yml'
+  pull_request:
+    paths:
+      - 'geo/geosite/**'
+      - 'scripts/**'
+      - '.github/workflows/build-rulesets.yml'
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-rulesets-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate source files
+        run: python3 scripts/validate_rulesets.py
+
+      - name: Download latest stable mihomo
+        shell: bash
+        run: |
+          set -euo pipefail
+          release_json="$(curl --fail --silent --show-error --location --retry 3 \
+            https://api.github.com/repos/MetaCubeX/mihomo/releases/latest)"
+          asset_url="$(jq -r '.assets[] | select(.name | test("^mihomo-linux-amd64-v[0-9]+\\.[0-9]+\\.[0-9]+\\.gz$")) | .browser_download_url' \
+            <<< "$release_json" | head -n 1)"
+          test -n "$asset_url"
+          curl --fail --silent --show-error --location --retry 3 "$asset_url" | gzip -d > mihomo
+          chmod +x mihomo
+          ./mihomo -v
+
+      - name: Build rule-set files
+        shell: bash
+        run: |
+          set -euo pipefail
+          for source in geo/geosite/*.yaml; do
+            name="$(basename "$source" .yaml)"
+            ./mihomo convert-ruleset domain yaml "$source" "geo/geosite/${name}.mrs"
+            ./mihomo convert-ruleset domain mrs "geo/geosite/${name}.mrs" "geo/geosite/${name}.list"
+          done
+
+      - name: Commit generated files
+        if: github.event_name != 'pull_request'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -f geo/geosite
+          if git diff --cached --quiet; then
+            echo 'Generated files are already current.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'chore: rebuild Mihomo rule-sets'
+          git push
+
+
